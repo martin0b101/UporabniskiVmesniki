@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <top>
+      <BorderPane BorderPane.alignment="CENTER">
+         <top>
+            <MenuBar prefHeight="33.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+              <menus>
+                <Menu text="_Datoteka">
+                  <items>
+                    <MenuItem onAction="#openCB" text="_Odpri">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="O" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator></MenuItem>
+                        <MenuItem onAction="#clearCB" text="_Pobriši">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="C" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                        <MenuItem onAction="#exitCB" text="_Izhod">
+                           <accelerator>
+                              <KeyCodeCombination alt="UP" code="Q" control="ANY" meta="UP" shift="UP" shortcut="UP" />
+                           </accelerator>
+                        </MenuItem>
+                  </items>
+                </Menu>
+                <Menu text="Izbire1_">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#izbira1" text="I1 M" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira2" text="I1 A" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira3" text="I1 R" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira4" text="I1 T" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira5" text="I1 I" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira6" text="I1 N" />
+                  </items>
+                </Menu>
+                <Menu text="Izbire2_">
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#izbira21" text="I2 V" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira22" text="I2 R" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira23" text="I2 B" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira24" text="I2 A" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira25" text="I2 N" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira26" text="I2 Č" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira27" text="I2 I" />
+                        <MenuItem mnemonicParsing="false" onAction="#izbira28" text="I2 Č" />
+                  </items>
+                </Menu>
+                  <Menu mnemonicParsing="false" text="_Pomoč">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
+              </menus>
+            </MenuBar>
+         </top>
+         <bottom>
+            <ToolBar prefHeight="40.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+               <items>
+                  <Label fx:id="usedButtons" />
+               </items>
+            </ToolBar>
+         </bottom>
+      </BorderPane>
+   </top>
+   <center>
+      <GridPane prefHeight="327.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="304.0" minWidth="10.0" prefWidth="299.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="304.0" minWidth="10.0" prefWidth="301.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Vnesi besedilo:">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="inputMessage" promptText="Napisi nekaj" GridPane.columnIndex="1">
+               <opaqueInsets>
+                  <Insets right="10.0" />
+               </opaqueInsets>
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </TextField>
+            <ComboBox fx:id="comboCitys" prefHeight="25.0" prefWidth="300.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </ComboBox>
+            <RadioButton fx:id="addItem" mnemonicParsing="false" selected="true" text="Dodaj" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <RadioButton fx:id="removeSelected" mnemonicParsing="false" text="Odstrani izbranega" GridPane.rowIndex="2">
+               <GridPane.margin>
+                  <Insets left="80.0" />
+               </GridPane.margin>
+            </RadioButton>
+            <CheckBox fx:id="allowTwins" mnemonicParsing="false" text="Dovoli dvojnike" GridPane.rowIndex="3">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </CheckBox>
+            <Button mnemonicParsing="false" onAction="#addElement" text="Izvedi akcijo" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Spinner fx:id="spinner" prefHeight="25.0" prefWidth="309.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <GridPane.margin>
+                  <Insets right="10.0" />
+               </GridPane.margin>
+            </Spinner>
+            <Label prefHeight="17.0" prefWidth="68.0" text="Sporočilo:" GridPane.rowIndex="5">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+            <RadioButton fx:id="removeFirst" mnemonicParsing="false" text="Odstrani prvega" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Label text="Status:" GridPane.rowIndex="6">
+               <GridPane.margin>
+                  <Insets left="10.0" />
+               </GridPane.margin>
+            </Label>
+            <Label fx:id="message" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="status" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+         </children>
+      </GridPane>
+   </center>
+</BorderPane>
