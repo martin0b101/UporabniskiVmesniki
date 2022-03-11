@@ -42,31 +42,31 @@
                         </MenuItem>
                   </items>
                 </Menu>
-                <Menu text="Izbire1_">
+                <Menu text="Izbire_1">
                   <items>
-                    <MenuItem mnemonicParsing="false" onAction="#izbira1" text="I1 M" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira2" text="I1 A" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira3" text="I1 R" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira4" text="I1 T" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira5" text="I1 I" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira6" text="I1 N" />
+                    <MenuItem onAction="#izbira1" text="I1 _M" />
+                        <MenuItem onAction="#izbira1" text="I1 _A" />
+                        <MenuItem onAction="#izbira1" text="I1 _R" />
+                        <MenuItem onAction="#izbira1" text="I1 _T" />
+                        <MenuItem onAction="#izbira1" text="I1 _I" />
+                        <MenuItem onAction="#izbira1" text="I1 _N" />
                   </items>
                 </Menu>
-                <Menu text="Izbire2_">
+                <Menu text="Izbire_2">
                   <items>
-                    <MenuItem mnemonicParsing="false" onAction="#izbira21" text="I2 V" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira22" text="I2 R" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira23" text="I2 B" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira24" text="I2 A" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira25" text="I2 N" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira26" text="I2 Č" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira27" text="I2 I" />
-                        <MenuItem mnemonicParsing="false" onAction="#izbira28" text="I2 Č" />
+                    <MenuItem onAction="#izbira2" text="I2 _V" />
+                        <MenuItem onAction="#izbira2" text="I2 _R" />
+                        <MenuItem onAction="#izbira2" text="I2 _B" />
+                        <MenuItem onAction="#izbira2" text="I2 _A" />
+                        <MenuItem onAction="#izbira2" text="I2 _N" />
+                        <MenuItem onAction="#izbira2" text="I2 _Č" />
+                        <MenuItem onAction="#izbira2" text="I2 _I" />
+                        <MenuItem onAction="#izbira2" text="I2 _Č" />
                   </items>
                 </Menu>
-                  <Menu mnemonicParsing="false" text="_Pomoč">
+                  <Menu text="_Pomoč">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem onAction="#aboutAuthor" text="_Avtor" />
                     </items>
                   </Menu>
               </menus>
@@ -91,7 +91,6 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -136,20 +135,24 @@
                   <Insets right="10.0" />
                </GridPane.margin>
             </Spinner>
-            <Label prefHeight="17.0" prefWidth="68.0" text="Sporočilo:" GridPane.rowIndex="5">
+            <Label fx:id="message" prefHeight="17.0" prefWidth="602.0" text="Sporočilo:" GridPane.columnSpan="2" GridPane.rowIndex="5">
                <padding>
                   <Insets left="10.0" />
                </padding>
             </Label>
-            <RadioButton fx:id="removeFirst" mnemonicParsing="false" text="Odstrani prvega" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Label text="Status:" GridPane.rowIndex="6">
+            <RadioButton fx:id="removeFirst" mnemonicParsing="false" text="Odstrani prvega" GridPane.columnSpan="2" GridPane.rowIndex="2">
                <GridPane.margin>
-                  <Insets left="10.0" />
-               </GridPane.margin>
-            </Label>
-            <Label fx:id="message" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-            <Label fx:id="status" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                  <Insets left="220.0" />
+               </GridPane.margin></RadioButton>
+
          </children>
       </GridPane>
    </center>
+   <bottom>
+      <Label fx:id="status" prefHeight="24.0" prefWidth="593.0" text="Status:" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+   </bottom>
 </BorderPane>

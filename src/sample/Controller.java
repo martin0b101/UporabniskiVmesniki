@@ -26,8 +26,6 @@ public class Controller implements Initializable {
         kraji.add("Krško");
         kraji.add("Ljubljana");
     }}
-    private String [] myName = {"M", "A", "R", "T", "I", "N"};
-    private String[] myLastName = {"V", "R", "B", "A", "N", "Č", "I", "Č"};
 
 
     public void openCB(ActionEvent actionEvent) {
@@ -40,8 +38,8 @@ public class Controller implements Initializable {
     }
 
     public void clearCB(ActionEvent actionEvent) {
-        message.setText("");
-        status.setText("");
+        message.setText("Sporočilo:");
+        status.setText("Status");
         usedButtons.setText("");
 
     }
@@ -51,106 +49,22 @@ public class Controller implements Initializable {
     }
 
     public void izbira2(ActionEvent actionEvent) {
+        MenuItem butttonPressed = (MenuItem) actionEvent.getSource(); //dobis tekst gumba pritisnjenega
+        String pressed [] = butttonPressed.getText().split(" "); //splitas na dva dela izberes 2 del besedila
         if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myName[1]);
+            usedButtons.setText(usedButtons.getText() + ", " + pressed[1]);
         else
-            usedButtons.setText(myName[1]);
+            usedButtons.setText(pressed[1]);
     }
 
     public void izbira1(ActionEvent actionEvent) {
+        MenuItem butttonPressed = (MenuItem) actionEvent.getSource(); //dobis tekst gumba pritisnjenega
+        String pressed [] = butttonPressed.getText().split(" "); //splitas na dva dela izberes 2 del besedila
         if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myName[0]);
+            usedButtons.setText(usedButtons.getText() + ", " + pressed[1]);
         else
-            usedButtons.setText(myName[0]);
-    }
+            usedButtons.setText(pressed[1]);
 
-    public void izbira3(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myName[2]);
-        else
-            usedButtons.setText(myName[2]);
-    }
-
-    public void izbira4(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myName[3]);
-        else
-            usedButtons.setText(myName[3]);
-    }
-
-    public void izbira5(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myName[4]);
-        else
-            usedButtons.setText(myName[4]);
-    }
-
-    public void izbira6(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myName[5]);
-        else
-            usedButtons.setText(myName[5]);
-    }
-
-
-    public void izbira21(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myLastName[0]);
-        else
-            usedButtons.setText(myLastName[0]);
-    }
-
-    public void izbira22(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myLastName[1]);
-        else
-            usedButtons.setText(myLastName[1]);
-    }
-
-    public void izbira23(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myLastName[2]);
-        else
-            usedButtons.setText(myLastName[2]);
-
-    }
-
-    public void izbira24(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myLastName[3]);
-        else
-            usedButtons.setText(myLastName[3]);
-
-    }
-
-    public void izbira25(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myLastName[4]);
-        else
-            usedButtons.setText(myLastName[4]);
-
-    }
-
-    public void izbira26(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myLastName[5]);
-        else
-            usedButtons.setText(myLastName[5]);
-
-    }
-
-    public void izbira27(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myLastName[6]);
-        else
-            usedButtons.setText(myLastName[6]);
-    }
-
-    public void izbira28(ActionEvent actionEvent) {
-        if (usedButtons.getText() != "")
-            usedButtons.setText(usedButtons.getText() + ", " + myLastName[7]);
-        else
-            usedButtons.setText(myLastName[7]);
 
     }
 
@@ -162,6 +76,10 @@ public class Controller implements Initializable {
         spinner.valueProperty().addListener((obser, oldv, newV) ->{
             getComboCityValue((int) newV);
         });
+        ToggleGroup radioButtonGroup = new ToggleGroup(); //grupiram radio gumbe da lahko zberes samo enega na enkrat
+        addItem.setToggleGroup(radioButtonGroup);
+        removeSelected.setToggleGroup(radioButtonGroup);
+        removeFirst.setToggleGroup(radioButtonGroup);
     }
 
 
@@ -197,7 +115,7 @@ public class Controller implements Initializable {
         }
         else if (removeSelected.isSelected()){
 
-            if () {
+            if (comboCitys.getValue() != null) {
                 String itemToRemove = comboCitys.getValue();
                 int indexOfRemoved = kraji.indexOf(itemToRemove);
                 kraji.remove(indexOfRemoved);
@@ -229,5 +147,13 @@ public class Controller implements Initializable {
         return false;
         
     }
-    
+
+    public void aboutAuthor(ActionEvent actionEvent) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Avtor");
+        alert.setHeaderText("O avtorju");
+        alert.setContentText("Naredil: Martin Vrbančič");
+        alert.show();
+
+    }
 }
